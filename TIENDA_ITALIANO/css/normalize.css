@@ -140,7 +140,7 @@ select {
   text-transform: none;
 }
 
-/ button,
+button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
@@ -172,7 +172,7 @@ fieldset {
   padding: 0.35em 0.75em 0.625em;
 }
 
-/ legend {
+legend {
   box-sizing: border-box;
   /* 1 */
   color: inherit;
