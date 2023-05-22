@@ -114,3 +114,56 @@ const limpiarHtml = (contenedor) => {
         contenedor.removeChild(contenedor.firstChild);
     }
 }
+
+// validación formulario
+
+document.querySelector('.formulario').addEventListener('submit', function (e) {
+    e.preventDefault(); // Evita que se envíe el formulario por defecto
+
+    // Obtener los valores de los campos del formulario
+    var nombre = document.getElementById('nombre').value.trim();
+    var apellido = document.getElementById('apellidos').value.trim();
+    var correo = document.getElementById('correo').value.trim();
+    var telefono = document.getElementById('telefono').value.trim();
+
+    // Expresiones regulares para validar los campos
+    var soloTexto = /^[a-zA-Z\s]+$/;
+    var soloNumeros = /^[0-9]+$/;
+    var formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validar el campo Nombre (solo texto)
+    if (!nombre.match(soloTexto)) {
+        alert('Por favor, ingresa unicamente texto en el campo Nombre.');
+        return;
+    }
+
+    // Validar el campo Apellido (solo texto)
+    if (!apellido.match(soloTexto)) {
+        alert('Por favor, ingresa unicamente texto en el campo Apellido.');
+        return;
+    }
+
+    // Validar el campo Correo (formato de email)
+    if (!correo.match(formatoEmail)) {
+        alert('Por favor, ingresa un correo electrónico válido.');
+        return;
+    }
+
+    // Validar el campo Teléfono (solo números)
+    if (!telefono.match(soloNumeros)) {
+        alert('Por favor, ingresa solo números en el campo Teléfono.');
+        return;
+    }
+
+    // Si todos los campos son válidos, puedes enviar el formulario
+    alert('Formulario enviado exitosamente!');
+    limpiarFormulario();
+});
+
+function limpiarFormulario() {
+    document.getElementById('nombre').value = '';
+    document.getElementById('apellidos').value = '';
+    document.getElementById('correo').value = '';
+    document.getElementById('telefono').value = '';
+    document.querySelector('.formulario textarea').value = '';
+}
