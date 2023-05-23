@@ -120,7 +120,7 @@ const limpiarHtml = (contenedor) => {
 document.querySelector('.formulario').addEventListener('submit', function (e) {
     e.preventDefault(); // Evita que se envíe el formulario por defecto
 
-    // Obtener los valores de los campos del formulario
+    // Obtengo los valores de los campos del formulario
     var nombre = document.getElementById('nombre').value.trim();
     var apellido = document.getElementById('apellidos').value.trim();
     var correo = document.getElementById('correo').value.trim();
@@ -129,7 +129,7 @@ document.querySelector('.formulario').addEventListener('submit', function (e) {
     // Expresiones regulares para validar los campos
     var soloTexto = /^[a-zA-Z\s]+$/;
     var soloNumeros = /^[0-9]+$/;
-    var formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var formatoEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
     // Validar el campo Nombre (solo texto)
     if (!nombre.match(soloTexto)) {
