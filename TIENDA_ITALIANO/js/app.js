@@ -121,15 +121,17 @@ document.querySelector('.formulario').addEventListener('submit', function (e) {
     e.preventDefault(); // Evita que se envíe el formulario por defecto
 
     // Obtengo los valores de los campos del formulario
-    var nombre = document.getElementById('nombre').value.trim();
-    var apellido = document.getElementById('apellidos').value.trim();
-    var correo = document.getElementById('correo').value.trim();
-    var telefono = document.getElementById('telefono').value.trim();
-
+    let nombre = document.getElementById('nombre').value.trim();
+    let apellido = document.getElementById('apellidos').value.trim();
+    let correo = document.getElementById('correo').value.trim();
+    let telefono = document.getElementById('telefono').value.trim();
+    let textarea = document.getElementById("mensaje").value.trim();
     // Expresiones regulares para validar los campos
-    var soloTexto = /^[a-zA-Z\s]+$/;
-    var soloNumeros = /^[0-9]+$/;
-    var formatoEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+    let soloTexto = /^[a-zA-Z\s]+$/;
+    let soloNumeros = /^[0-9]+$/;
+    let formatoEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+
+    //validar que ningun campo este en blanco
 
     // Validar el campo Nombre (solo texto)
     if (!nombre.match(soloTexto)) {
@@ -152,6 +154,11 @@ document.querySelector('.formulario').addEventListener('submit', function (e) {
     // Validar el campo Teléfono (solo números)
     if (!telefono.match(soloNumeros)) {
         alert('Por favor, ingresa solo números en el campo Teléfono.');
+        return;
+    }
+
+    if (textarea === "") {
+        alert("Por favor, ingresa tu consulta en mensaje");
         return;
     }
 
