@@ -174,3 +174,6 @@ function limpiarFormulario() {
     document.getElementById('telefono').value = '';
     document.querySelector('.formulario textarea').value = '';
 }
+
+
+
